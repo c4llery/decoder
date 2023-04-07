@@ -13,9 +13,8 @@ void Decoder::add_inputs(int n){
 
 void Decoder::connect(int begin, int end)
 {
-    try{
     if ((begin < 1) || (end > ands.size()) || (begin > end))
-        throw "You are out of bounds!";
+        throw std::range_error("Connect: Incorrect bounds of connecting");
     for (int i = begin - 1; i < end; ++i){
         int tmp = i;
         for (int j = 0; j < sources.size(); ++j){
@@ -27,12 +26,6 @@ void Decoder::connect(int begin, int end)
         }
     }
 }
-catch (std::out_of_range)
-{
-    std::cout << "You are out of bounds!";
-}
-}
-
 void Decoder::connect()
 {
     for (int i = 0; i < std::min(int(pow(2, sources.size())), ands.size()); ++i){

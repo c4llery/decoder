@@ -28,7 +28,7 @@ try
 
   decoder.add_ands(16);
   decoder.add_inputs(2);
-  decoder.connect(3, 3);
+  decoder.connect();
 
   SchemeShape scheme{ Graph_lib::Point{5, 5}, win_w - 80, win_h - 10 };
 
