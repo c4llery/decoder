@@ -11,9 +11,9 @@ class Decoder
 public:
     void add_ands(int n);
     void add_ands() {ands.push_back(new Logic::And);}
-    void add_inputs() {sources.push_back(new Logic::Source);} ;
+    void add_inputs() {inputs.push_back(new Logic::Source);} ;
     void add_inputs(int n);
-    Graph_lib::Vector_ref<Logic::Source> sources{}; //TODO: Добавить входы и выходы
+    Graph_lib::Vector_ref<Logic::Source> inputs{}; //TODO: Добавить входы и выходы
     Graph_lib::Vector_ref<Logic::And> ands{};
     void connect(int, int);
     void connect();

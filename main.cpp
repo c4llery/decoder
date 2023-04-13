@@ -41,15 +41,14 @@ try
   { return int(40 + 75 * l); };
   int sdv1 = 44;
 
-  for (int k = 0; k < decoder.sources.size(); ++k){
-      decoder_shape.add_source_shape(scheme, decoder.sources[k], "", Graph_lib::Point{ column_x(0.5 * k), line_y(0) - 20});
+  for (int k = 0; k < decoder.inputs.size(); ++k){
+      decoder_shape.add_input_shape(scheme, decoder.inputs[k], "", Graph_lib::Point{ column_x(0.5 * k), line_y(0) - 20});
   }
 
   for (int k = 0; k < decoder.ands.size(); ++k){
     decoder_shape.add_and_shape(scheme, decoder.ands[k], "", Graph_lib::Point{ column_x(4), line_y(0.5 * k) + sdv1});
 }
   scheme.update_connections();
-  decoder.sources[0] = true;
   return Graph_lib::gui_main();
 }
 

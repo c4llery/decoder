@@ -9,9 +9,9 @@ using namespace Logic;
 class DecoderShape : public Graph_lib::Widget
 {
 public:
-    DecoderShape(Graph_lib::Point/*, Graph_lib::Vector_ref<Graph_lib::Callback> callbacks*/);
+    DecoderShape(Graph_lib::Point);
 
-    void add_source_shape(SchemeShape&, Source&, const std::string, const Graph_lib::Point&,
+    void add_input_shape(SchemeShape&, Source&, const std::string, const Graph_lib::Point&,
                           int width = DEFAULT_WIDTH, int height = DEFAULT_HEIGHT);
 
     void add_and_shape(SchemeShape&, And&, const std::string, const Graph_lib::Point&,

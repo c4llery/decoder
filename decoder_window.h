@@ -8,22 +8,35 @@ class DecoderWindow : public Graph_lib::Window
 {
 public:
     DecoderWindow(int i, Decoder*, SchemeShape*, DecoderShape*);
-//    void add_scheme(SchemeShape* scheme);
 
 private:
-    static void callback_clicked(Graph_lib::Address, Graph_lib::Address object) {
+    static void callback_clicked1(Graph_lib::Address, Graph_lib::Address object) {
         auto &btn = Graph_lib::reference_to<Graph_lib::Button>(object);
-        dynamic_cast<DecoderWindow &>(btn.window()).clicked(btn);
-
-
+        dynamic_cast<DecoderWindow &>(btn.window()).clicked(btn, 0);
     }
-    Graph_lib::Vector_ref<Graph_lib::Button> buttons;
-    Graph_lib::Button button;
+    static void callback_clicked2(Graph_lib::Address, Graph_lib::Address object) {
+        auto &btn = Graph_lib::reference_to<Graph_lib::Button>(object);
+        dynamic_cast<DecoderWindow &>(btn.window()).clicked(btn, 1);
+    }
+
+    static void callback_clicked3(Graph_lib::Address, Graph_lib::Address object) {
+        auto &btn = Graph_lib::reference_to<Graph_lib::Button>(object);
+        dynamic_cast<DecoderWindow &>(btn.window()).clicked(btn, 2);
+    }
+
+    static void callback_clicked4(Graph_lib::Address, Graph_lib::Address object) {
+        auto &btn = Graph_lib::reference_to<Graph_lib::Button>(object);
+        dynamic_cast<DecoderWindow &>(btn.window()).clicked(btn, 3);
+    }
     Decoder* current_decoder;
     DecoderShape* decoder_shape;
     SchemeShape* scheme;
+    Graph_lib::Button button1;
+    Graph_lib::Button button2;
+    Graph_lib::Button button3;
+    Graph_lib::Button button4;
 
-    void clicked(Graph_lib::Button&);
+    void clicked(Graph_lib::Button&, int number);
 
 };
 
