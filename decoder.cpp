@@ -13,7 +13,7 @@ void Decoder::add_inputs(int n){
     for (int i = 0; i < n; ++i)
         inputs.push_back(new Logic::Source);
 }
-
+/*
 void Decoder::connect(int begin, int end)
 {
     if ((begin < 1) || (end > ands.size()) || (begin > end))
@@ -29,6 +29,13 @@ void Decoder::connect(int begin, int end)
         }
     }
 }
+*/
+
+void Decoder::add_inputs(Logic::Element& elem)
+{
+    inputs.push_back(elem);
+}
+
 void Decoder::connect()
 {
     for (int i = 0; i < std::min(int(pow(2, inputs.size())), ands.size()); ++i){
@@ -42,3 +49,9 @@ void Decoder::connect()
         }
     }
 }
+
+void Decoder::connect(Logic::Element& source, Logic::Operation& output) // сурс-оператор, оператор-оператор
+{
+        source >> output;
+}
+

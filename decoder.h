@@ -13,10 +13,12 @@ public:
     void add_ands() {ands.push_back(new Logic::And);}
     void add_inputs() {inputs.push_back(new Logic::Source);} ;
     void add_inputs(int n);
-    Graph_lib::Vector_ref<Logic::Source> inputs{}; //TODO: Добавить входы и выходы
+    void add_inputs(Logic::Element&);
+    Graph_lib::Vector_ref<Logic::Element> inputs{}; //TODO: Добавить входы и выходы
     Graph_lib::Vector_ref<Logic::And> ands{};
-    void connect(int, int);
     void connect();
+    void connect(Logic::Element&, Logic::Operation&);
+
 
     void Clicked(Graph_lib::Button &b);
 
