@@ -61,7 +61,8 @@ public:
   const Output_container& get_outputs () const  { return outputs; }
 
   void set_callback (Logic_callback f)  { cb = f; }
-  void set_opposite_out () {out = !out;}
+  void set_opposite_out () {set(!out);}
+  bool value() {return out;}
 
 protected:
   void set (bool value);

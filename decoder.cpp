@@ -1,14 +1,17 @@
 #include "decoder.h"
 #include <stdexcept>
 #include <iostream>
+
+
+
 void Decoder::add_ands(int n){
     for (int i = 0; i < n; ++i)
-        ands.push_back(new And);
+        ands.push_back(new Logic::And);
 }
 
 void Decoder::add_inputs(int n){
     for (int i = 0; i < n; ++i)
-        sources.push_back(new Source);
+        sources.push_back(new Logic::Source);
 }
 
 void Decoder::connect(int begin, int end)

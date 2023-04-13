@@ -2,17 +2,25 @@
 #define DECODER_SHAPES_H
 #include "logic_shapes.h"
 #include "logic.h"
+#include "Graph_lib/Simple_window.h"
 using namespace Logic;
 
 
-class DecoderShape
+class DecoderShape : public Graph_lib::Widget
 {
 public:
+    DecoderShape(Graph_lib::Point/*, Graph_lib::Vector_ref<Graph_lib::Callback> callbacks*/);
+
     void add_source_shape(SchemeShape&, Source&, const std::string, const Graph_lib::Point&,
                           int width = DEFAULT_WIDTH, int height = DEFAULT_HEIGHT);
+
     void add_and_shape(SchemeShape&, And&, const std::string, const Graph_lib::Point&,
                        int width = DEFAULT_WIDTH, int height = DEFAULT_HEIGHT);
 
+    void move (int dx, int dy) override  { return; }
+    void hide () override  { return; }
+    void show () override  { return; }
+    void attach (Graph_lib::Window&) override {return;};
 private:
 
     Graph_lib::Vector_ref<SourceShape> src_shapes{};
