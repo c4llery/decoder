@@ -7,7 +7,7 @@
 class DecoderWindow : public Graph_lib::Window
 {
 public:
-    DecoderWindow(int i, Decoder*, SchemeShape*, DecoderShape*);
+    DecoderWindow(Decoder*, SchemeShape*);
 
 private:
     static void callback_clicked1(Graph_lib::Address, Graph_lib::Address object) {
@@ -29,7 +29,6 @@ private:
         dynamic_cast<DecoderWindow &>(btn.window()).clicked(btn, 3);
     }
     Decoder* current_decoder;
-    DecoderShape* decoder_shape;
     SchemeShape* scheme;
     Graph_lib::Button button1;
     Graph_lib::Button button2;
@@ -37,7 +36,6 @@ private:
     Graph_lib::Button button4;
 
     void clicked(Graph_lib::Button&, int number);
-
 };
 
 #endif // DECODER_WINDOW_H

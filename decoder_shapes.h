@@ -21,7 +21,7 @@ public:
     void move (int dx, int dy) override  { return; }
     void hide () override  { return; }
     void show () override  { return; }
-    void attach (Graph_lib::Window&) override {return;};
+    void attach (Graph_lib::Window&) override {return;}
 private:
 
     Graph_lib::Vector_ref<ElementShape> src_shapes{};
