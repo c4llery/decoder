@@ -8,7 +8,12 @@
 
 class Decoder
 {
+
 public:
+    Decoder(Graph_lib::Vector_ref<Logic::Element>);
+    Decoder(int n);
+
+private:
     void add_ands(int n);
     void add_ands() {ands.push_back(new Logic::And);}
     void add_inputs() {inputs.push_back(new Logic::Source);} ;
@@ -18,10 +23,6 @@ public:
     Graph_lib::Vector_ref<Logic::And> ands{};
     void connect();
     void connect(Logic::Element&, Logic::Operation&);
-    void connect(Logic::Element&);
-
-
-    void Clicked(Graph_lib::Button &b);
 
 };
 

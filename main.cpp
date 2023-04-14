@@ -22,16 +22,11 @@ try
   using namespace Logic;
 
 
-  Decoder decoder;
-  Decoder decoder2;
+  Decoder decoder(4);
+  //Decoder decoder2;
   DecoderShape decoder_shape(Graph_lib::Point(50, 50));
-  DecoderShape decoder_shape2(Graph_lib::Point(50, 50));
+  //DecoderShape decoder_shape2(Graph_lib::Point(50, 50));
 
-
-  decoder.add_inputs(3);
-  decoder.add_ands(16);
-  decoder2.add_ands();
-  //decoder.connect();
 
   SchemeShape scheme{ Graph_lib::Point{5, 5}, win_w - 80, win_h - 10 };
   DecoderWindow decoder_window(&decoder, &scheme);
