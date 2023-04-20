@@ -105,4 +105,7 @@ void Or::calc ()
   set(res);
 }
 
+
+
+
 } // namespace Logic

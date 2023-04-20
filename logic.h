@@ -3,6 +3,7 @@
 
 #include <functional>
 #include <vector>
+#include <Graph_lib/Simple_window.h>
 
 
 namespace Logic {
@@ -164,6 +165,27 @@ public:
 
 protected:
   virtual void calc () override;
+};
+
+class Decoder : public Operation
+{
+public:
+    explicit Decoder (Out_state st = Out_state::direct, Logic_callback f = nullptr)
+      : Operation{ st, f }
+    {
+        for (int i = 0; i < 16; ++i)
+            ands.push_back(new Logic::And);
+    }
+
+    Graph_lib::Vector_ref<Logic::And>& get_ands() {return ands;}; // почему по ссылке?
+    //friend Element& operator>> (Element& lhs, Decoder& dec); // shto
+
+protected:
+    virtual void calc () override {};
+
+private:
+
+    Graph_lib::Vector_ref<Logic::And> ands;
 };
 
 } // namespace Logic

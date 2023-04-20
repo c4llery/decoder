@@ -176,6 +176,25 @@ protected:
   Graph_lib::Arc right_side;
 };
 
+class DecoderShape: public OperatorShape
+{
+public:
+    DecoderShape(SchemeShape& scheme,
+                 Decoder& d,
+                 const std::string& name,
+                 const Graph_lib::Point& pos,  // left to
+               int width = DEFAULT_WIDTH, int height = DEFAULT_HEIGHT);
+
+protected:
+    virtual void draw_lines () const override {};
+
+
+private:
+    Graph_lib::Vector_ref<AndShape> output_shapes{};
+    Graph_lib::Vector_ref<ElementShape> input_shapes{};
+};
+
+
 } // namespace Logic
 
 #endif // LOGIC_SHAPES_H

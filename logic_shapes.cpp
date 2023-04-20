@@ -311,4 +311,21 @@ void OrShape::draw_lines () const
   right_side.draw();
 }
 
+DecoderShape::DecoderShape (SchemeShape& scheme,
+                  Decoder& d,
+                  const std::string& name,
+                  const Point& pos,  // left top
+                  int width , int height)
+  : OperatorShape { scheme, d, name, pos, width, height}
+{
+    for (int i = 0; i < 16; ++i)
+       output_shapes.push_back(new AndShape{scheme, d.get_ands()[i], "", Graph_lib::Point{this->w + 200, this->h + i * 45}});
+}
+
+
+
+
+
+
+
 } // namespace Logic
